@@ -55,23 +55,23 @@ RecoResult TaskBase::run_recognition(const cv::Mat& image, const PipelineData& d
 
     if (!context_) {
         LogError << "context is null";
-        return {};
+        return { };
     }
 
     if (image.empty()) {
         LogError << "Image is empty";
-        return {};
+        return { };
     }
 
     if (!data.enabled) {
         LogDebug << "node disabled" << data.name << VAR(data.enabled);
-        return {};
+        return { };
     }
 
     size_t current_hit = context_->get_hit_count(data.name);
     if (current_hit >= static_cast<size_t>(data.max_hit)) {
         LogDebug << "max_hit reached" << VAR(data.name) << VAR(current_hit) << VAR(data.max_hit);
-        return {};
+        return { };
     }
 
     Recognizer recognizer(tasker_, *context_, image);
@@ -107,17 +107,17 @@ ActionResult TaskBase::run_action(const RecoResult& reco, const PipelineData& da
 {
     if (!context_) {
         LogError << "context is null";
-        return {};
+        return { };
     }
 
     if (!reco.box) {
         LogError << "reco box is nullopt";
-        return {};
+        return { };
     }
 
     if (!data.enabled) {
         LogDebug << "node disabled" << data.name << VAR(data.enabled);
-        return {};
+        return { };
     }
 
     Actuator actuator(tasker_, *context_);
@@ -140,7 +140,7 @@ ActionResult TaskBase::run_action(const RecoResult& reco, const PipelineData& da
 cv::Mat TaskBase::screencap()
 {
     if (!controller()) {
-        return {};
+        return { };
     }
 
     return controller()->screencap();

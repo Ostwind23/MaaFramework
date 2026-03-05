@@ -349,7 +349,7 @@ CustomRecognitionSession ResourceMgr::custom_recognition(const std::string& name
 {
     auto it = custom_recognition_sessions_.find(name);
     if (it == custom_recognition_sessions_.end()) {
-        return {};
+        return { };
     }
 
     return it->second;
@@ -359,7 +359,7 @@ CustomActionSession ResourceMgr::custom_action(const std::string& name) const
 {
     auto it = custom_action_sessions_.find(name);
     if (it == custom_action_sessions_.end()) {
-        return {};
+        return { };
     }
 
     return it->second;

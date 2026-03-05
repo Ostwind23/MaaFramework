@@ -42,7 +42,7 @@ std::vector<int> input_multi_impl(size_t size, std::string_view prompt)
 
         if (std::cin.eof()) {
             s_eof = true;
-            return {};
+            return { };
         }
 
         if (buffer.empty()) {
@@ -83,7 +83,7 @@ int input(size_t size, std::string_view prompt = "Please input")
     while (true) {
         auto values = input_multi_impl(size, prompt);
         if (s_eof) {
-            return {};
+            return { };
         }
         if (values.size() != 1) {
             fail();
@@ -1050,7 +1050,7 @@ std::string Interactor::get_display_name(const std::string& name, const std::str
 std::string Interactor::read_text_content(const std::string& text) const
 {
     if (text.empty()) {
-        return {};
+        return { };
     }
 
     // 先翻译文本（如果以 $ 开头）

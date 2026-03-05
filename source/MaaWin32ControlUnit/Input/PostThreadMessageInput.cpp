@@ -29,7 +29,7 @@ std::pair<int, int> PostThreadMessageInput::get_target_pos() const
     }
 
     // 未设置时返回窗口客户区中心
-    RECT rect = {};
+    RECT rect = { };
     if (hwnd_ && GetClientRect(hwnd_, &rect)) {
         return { (rect.right - rect.left) / 2, (rect.bottom - rect.top) / 2 };
     }

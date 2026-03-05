@@ -92,7 +92,7 @@ OCRer::ResultsVec OCRer::predict_det_and_rec(const cv::Mat& image_roi) const
 {
     if (!ocrer_) {
         LogError << "ocrer_ is null";
-        return {};
+        return { };
     }
 
     fastdeploy::vision::OCRResult ocr_result;
@@ -104,7 +104,7 @@ OCRer::ResultsVec OCRer::predict_det_and_rec(const cv::Mat& image_roi) const
     }
     if (!ret) {
         LogWarn << "predict return false" << VAR(ocrer_) << VAR(image_) << VAR(image_roi);
-        return {};
+        return { };
     }
 
     ResultsVec results;
@@ -148,7 +148,7 @@ OCRer::Result OCRer::predict_only_rec(const cv::Mat& image_roi) const
 {
     if (!recer_) {
         LogError << "recer_ is null";
-        return {};
+        return { };
     }
 
     std::string reco_text;
@@ -160,7 +160,7 @@ OCRer::Result OCRer::predict_only_rec(const cv::Mat& image_roi) const
     }
     if (!ret) {
         LogWarn << "recer_ return false" << VAR(recer_) << VAR(image_) << VAR(image_roi);
-        return {};
+        return { };
     }
 
     auto text = to_u16(reco_text);

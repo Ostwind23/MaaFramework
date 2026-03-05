@@ -110,7 +110,7 @@ MaaActId
         return MaaInvalidId;
     }
 
-    cv::Rect cvbox {};
+    cv::Rect cvbox { };
     if (box) {
         cvbox.x = box->x;
         cvbox.y = box->y;

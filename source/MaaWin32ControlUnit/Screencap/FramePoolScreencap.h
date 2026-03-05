@@ -56,7 +56,7 @@ private:
     winrt::com_ptr<ID3D11DeviceContext> d3d_context_ = nullptr;
     winrt::com_ptr<IDXGISwapChain> dxgi_swap_chain_ = nullptr;
     winrt::com_ptr<ID3D11Texture2D> readable_texture_ = nullptr;
-    D3D11_TEXTURE2D_DESC texture_desc_ = {};
+    D3D11_TEXTURE2D_DESC texture_desc_ = { };
 
     std::mutex frame_mutex_;
     std::condition_variable frame_cv_;
@@ -82,12 +82,12 @@ MAA_CTRL_UNIT_NS_BEGIN
 class FramePoolScreencap : public ScreencapBase
 {
 public:
-    FramePoolScreencap(HWND) {}
+    FramePoolScreencap(HWND) { }
 
     virtual ~FramePoolScreencap() override = default;
 
 public: // from ScreencapBase
-    virtual std::optional<cv::Mat> screencap() override { return {}; }
+    virtual std::optional<cv::Mat> screencap() override { return { }; }
 };
 
 MAA_CTRL_UNIT_NS_END

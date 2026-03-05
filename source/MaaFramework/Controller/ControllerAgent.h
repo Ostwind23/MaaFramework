@@ -22,7 +22,7 @@ MAA_CTRL_NS_BEGIN
 
 struct ClickParam
 {
-    cv::Point point {};
+    cv::Point point { };
     int contact = 0;
 
     MEO_TOJSON(point, contact);
@@ -30,7 +30,7 @@ struct ClickParam
 
 struct LongPressParam
 {
-    cv::Point point {};
+    cv::Point point { };
     uint duration = 0;
     int contact = 0;
 
@@ -39,7 +39,7 @@ struct LongPressParam
 
 struct SwipeParam
 {
-    cv::Point begin {};
+    cv::Point begin { };
     std::vector<cv::Point> end;
     std::vector<uint> end_hold;
     std::vector<uint> duration;
@@ -60,7 +60,7 @@ struct MultiSwipeParam
 struct TouchParam
 {
     int contact = 0;
-    cv::Point point {};
+    cv::Point point { };
     int pressure = 0;
 
     MEO_TOJSON(contact, point, pressure);

@@ -30,7 +30,7 @@ PipelineV2::JTarget dump_target(const T& target)
     case Action::Target::Type::Invalid:
     default:
         LogError << "Invalid target type" << VAR(target.type);
-        return {};
+        return { };
     }
 }
 
@@ -255,7 +255,7 @@ PipelineV2::JRecognition PipelineDumper::dump_reco(Recognition::Type type, const
 
     default:
         LogError << "Invalid recognition type" << VAR(type);
-        return {};
+        return { };
     }
 
     return reco;
@@ -268,7 +268,7 @@ PipelineV2::JAction PipelineDumper::dump_act(Action::Type type, const Action::Pa
 
     switch (type) {
     case Action::Type::DoNothing:
-        act.param = PipelineV2::JDoNothing {};
+        act.param = PipelineV2::JDoNothing { };
         break;
 
     case Action::Type::Click: {
@@ -396,7 +396,7 @@ PipelineV2::JAction PipelineDumper::dump_act(Action::Type type, const Action::Pa
     } break;
 
     case Action::Type::StopTask: {
-        act.param = PipelineV2::JStopTask {};
+        act.param = PipelineV2::JStopTask { };
         break;
     }
 
@@ -429,7 +429,7 @@ PipelineV2::JAction PipelineDumper::dump_act(Action::Type type, const Action::Pa
 
     default:
         LogError << "Invalid action type" << VAR(type);
-        return {};
+        return { };
     }
 
     return act;

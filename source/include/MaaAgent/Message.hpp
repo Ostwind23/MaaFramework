@@ -56,7 +56,7 @@ struct CustomRecognitionRequest
     std::string custom_recognition_name;
     std::string custom_recognition_param;
     std::string image;
-    std::array<int32_t, 4> roi {};
+    std::array<int32_t, 4> roi { };
 
     MessageTypePlaceholder _CustomRecognitionRequest = 1;
     MEO_JSONIZATION(
@@ -73,7 +73,7 @@ struct CustomRecognitionRequest
 struct CustomRecognitionResponse
 {
     bool ret = false;
-    std::array<int32_t, 4> out_box {};
+    std::array<int32_t, 4> out_box { };
     std::string out_detail;
 
     MessageTypePlaceholder _CustomRecognitionResponse = 1;
@@ -88,7 +88,7 @@ struct CustomActionRequest
     std::string custom_action_name;
     std::string custom_action_param;
     int64_t reco_id = 0;
-    std::array<int32_t, 4> box {};
+    std::array<int32_t, 4> box { };
 
     MessageTypePlaceholder _CustomActionRequest = 1;
     MEO_JSONIZATION(context_id, task_id, node_name, custom_action_name, custom_action_param, reco_id, box, _CustomActionRequest);
@@ -208,7 +208,7 @@ struct ContextRunActionReverseRequest
     std::string context_id;
     std::string entry;
     json::value pipeline_override;
-    std::array<int, 4> box {};
+    std::array<int, 4> box { };
     std::string reco_detail;
 
     MessageTypePlaceholder _ContextRunActionReverseRequest = 1;
@@ -466,7 +466,7 @@ struct TaskerPostActionReverseRequest
     std::string tasker_id;
     std::string action_type;
     json::value action_param;
-    std::array<int32_t, 4> box {};
+    std::array<int32_t, 4> box { };
     std::string reco_detail;
 
     MessageTypePlaceholder _TaskerPostActionReverseRequest = 1;
@@ -668,7 +668,7 @@ struct TaskerGetRecoResultReverseResponse
     std::string name;
     std::string algorithm;
     bool hit = false;
-    std::array<int32_t, 4> box {};
+    std::array<int32_t, 4> box { };
     json::value detail;
     std::string raw;
     std::vector<std::string> draws;
@@ -692,7 +692,7 @@ struct TaskerGetActionResultReverseResponse
     int64_t action_id = 0;
     std::string name;
     std::string action;
-    std::array<int32_t, 4> box {};
+    std::array<int32_t, 4> box { };
     bool success = false;
     json::value detail;
 

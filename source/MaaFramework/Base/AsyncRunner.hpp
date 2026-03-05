@@ -226,7 +226,7 @@ inline void AsyncRunner<Item>::clear()
 
     {
         std::unique_lock queue_lock(queue_mutex_);
-        queue_ = {};
+        queue_ = { };
         queue_cond_.notify_all();
     }
 

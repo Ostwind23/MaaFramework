@@ -156,7 +156,7 @@ bool FramePoolScreencap::init()
 
     HRESULT ret = S_OK;
 
-    DXGI_SWAP_CHAIN_DESC swap_chain_desc = {};
+    DXGI_SWAP_CHAIN_DESC swap_chain_desc = { };
     swap_chain_desc.BufferCount = 1;
     swap_chain_desc.BufferDesc.Format = DXGI_FORMAT_R8G8B8A8_UNORM;
     swap_chain_desc.BufferUsage = DXGI_USAGE_RENDER_TARGET_OUTPUT;
@@ -242,14 +242,14 @@ void FramePoolScreencap::uninit()
     }
     if (cap_frame_pool_ && frame_arrived_token_.value) {
         cap_frame_pool_.FrameArrived(frame_arrived_token_);
-        frame_arrived_token_ = {};
+        frame_arrived_token_ = { };
     }
     readable_texture_ = nullptr;
     cap_frame_pool_ = nullptr;
     cap_session_ = nullptr;
     latest_frame_ = nullptr;
     texture_desc_ = { 0 };
-    last_capture_size_ = {};
+    last_capture_size_ = { };
 }
 
 bool FramePoolScreencap::check_and_handle_size_changed()
